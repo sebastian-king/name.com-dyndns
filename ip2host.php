@@ -6,6 +6,7 @@ $api->login('NAME_COM_API_USERNAME', 'NAME_COM_API_KEY');
 $sub_domain = $_GET['sub_domain'];
 $super_domain = $_GET['super_domain'];
 $ip = ((@$_GET['ip']) ? $_GET['ip'] : $_SERVER['REMOTE_ADDR']);
+$ttl = ((@$_GET['ttl']) ? $_GET['ttl'] : 300);
 
 $response = $api->get_domain($super_domain);
 if ($response->result->code != 100) {
@@ -24,7 +25,7 @@ foreach ($response->records as $key => $val) {
                 }
         }
 }
-$response = $api->create_dns_record($super_domain, $sub_domain, 'A', $ip, 300);
+$response = $api->create_dns_record($super_domain, $sub_domain, 'A', $ip, $ttl);
 if ($response->result->code != 100) {
         $a = array("response"=>"An unknown error has occured when updating the record.","code"=>$response->result->code);
 } else {
