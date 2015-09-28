@@ -6,7 +6,7 @@ $api->login('NAME_COM_API_USERNAME', 'NAME_COM_API_KEY');
 $sub_domain = $_GET['sub_domain'];
 $super_domain = $_GET['super_domain'];
 $ip = ((@$_GET['ip']) ? $_GET['ip'] : $_SERVER['REMOTE_ADDR']);
-$ttl = ((@$_GET['ttl']) ? $_GET['ttl'] : 300);
+$ttl = ((@$_GET['ttl']) ? $_GET['ttl'] : 300); // default 5 minute time to live
 
 $response = $api->get_domain($super_domain);
 if ($response->result->code != 100) {
