@@ -1,6 +1,6 @@
 #!/bin/bash
 
-// requires Core Utils & Network Commands by Saurik in Cydia
+# requires Core Utils & Network Commands by Saurik in Cydia
 
 if [ "$#" -ne 2 ]; then
         echo "Usage: $0 <super_domain> <sub_domain>";
