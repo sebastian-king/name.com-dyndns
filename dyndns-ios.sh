@@ -15,6 +15,7 @@ SUB_DOMAIN="${2}";
 ip=`ifconfig en0 | egrep -o "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+" | head -n 1`;
 ttl=60;
 if [ -z "$ip" ]; then
-  ip=`wget http://${API_HOST}/api/ip.php -qO- --no-check-certificate | head -n 1`; // becuase my API forces SSL
+  ip="";
+  #ip=`wget http://${API_HOST}/api/ip.php -qO- --no-check-certificate | head -n 1`; // integrated into ip2host.php
 fi
 wget "http://${API_HOST}/api/ip2host.php?sub_domain=${SUB_DOMAIN}&super_domain=${SUPER_DOMAIN}&ip=$ip&ttl=$ttl" -qO- --no-check-certificate && echo ""
