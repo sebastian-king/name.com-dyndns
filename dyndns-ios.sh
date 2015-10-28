@@ -7,7 +7,7 @@ if [ "$#" -ne 2 ]; then
         exit
 fi
 
-API_HOST="api.massivesoft.net";
+API_HOST="api.example.net";
 
 SUPER_DOMAIN="${1}";
 SUB_DOMAIN="${2}";
