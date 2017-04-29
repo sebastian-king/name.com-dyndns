@@ -1,0 +1,2 @@
+# don't push the private API information that is kept in the config file, of course.
+config.php
